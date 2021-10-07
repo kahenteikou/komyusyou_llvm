@@ -1,0 +1,1 @@
+add_executable(komyusyou_llvm komyusyou_llvm.cpp)
