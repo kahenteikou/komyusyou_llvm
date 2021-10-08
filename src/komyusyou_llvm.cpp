@@ -1,6 +1,11 @@
 #include <iostream>
 #include <stdlib.h>
-int main(int argc,char** argv){
-    char* data=new char[32767];
+#include <llvm/IR/IRBuilder.h>
+#include <llvm/IR/LLVMContext.h>
+#include <llvm/IR/Module.h>
+int main(){
+    char* data=(char*)calloc(32767,sizeof(char));
+    char* ptr=data;
+    free(data);
     return 0;
 }

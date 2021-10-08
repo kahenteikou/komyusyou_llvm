@@ -1,1 +1,3 @@
+find_package(LLVM REQUIRED)
 add_executable(komyusyou_llvm komyusyou_llvm.cpp)
+target_link_libraries(komyusyou_llvm LLVM)
