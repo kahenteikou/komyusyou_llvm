@@ -7,11 +7,11 @@ static llvm::LLVMContext TheContext;
 static llvm::IRBuilder<> Builder(TheContext);
 static std::unique_ptr<llvm::Module> TheModule;
 int main(){
-    TheModule = llvm::make_unique<llvm::Module>("top", TheContext);
+    TheModule = std::make_unique<llvm::Module>("tinpo", TheContext);
     llvm::Function* mainFunc = llvm::Function::Create(
         llvm::FunctionType::get(llvm::Type::getInt32Ty(TheContext), false),
         llvm::Function::ExternalLinkage, "main", TheModule.get());
     Builder.SetInsertPoint(llvm::BasicBlock::Create(TheContext, "", mainFunc));
     Builder.CreateRet(Builder.getInt32(42));
-    TheModule->dump();   
+    TheModule->print(llvm::errs(),nullptr);   
 }
